@@ -25,6 +25,33 @@ let real=false;
 let arraybar=[];
 let stringbar="";
 
+function keypress(e){
+
+    const key=document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if (e.keyCode==48) {writebar(0); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==49) {writebar(1); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==50) {writebar(2); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==51) {writebar(3); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==52) {writebar(4); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==53) {writebar(5); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==54) {writebar(6); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==55) {writebar(7); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==56) {writebar(8); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==57) {writebar(9); if (newn) {dot=true;newn=false}}
+    else if (e.keyCode==190) {if (dot) {writebar("."); dot=false; real=true;}}
+    else if (e.keyCode==13) {domath()}
+    else if (e.keyCode==32) {errabar()}
+    else if (e.keyCode==8) { arraybar.pop(); bar.textContent=`${arraybar.join("")}`}
+    else if (e.keyCode==107) {writebar(" + ");newn=true }
+    else if (e.keyCode==109) {writebar(" - ");newn=true }
+    else if (e.keyCode==106) {writebar(" * ");newn=true }
+    else if (e.keyCode==111) {writebar(" / ");newn=true }
+    else if (e.keyCode==16) {writebar(" ^ ");newn=true }
+    key.classList.add("press");
+    //console.log(key);
+     }
+
+
 
 function writebar(n){
 	if (arraybar[0]=="E"){arraybar=[]}
@@ -87,8 +114,15 @@ btn14.addEventListener("click",function () {errabar()})
 btn15.addEventListener("click",function () { arraybar.pop(); bar.textContent=`${arraybar.join("")}`})
 btn16.addEventListener("click",function () {domath()})
 
+window.addEventListener("keydown",keypress);
+const numbers=document.querySelectorAll(".key");
+numbers.forEach(key => key.addEventListener("transitionend",removeTransition));
 
 
+function removeTransition(e){ 
+ // if (e.propertyName != "transform"){ return;}
+  this.classList.remove("press");
+    }
 
 //concept
  //var arraybar = "1.2 + 4 - 2 * 2 / 4";

@@ -77,10 +77,18 @@ font-family: roboto;
 font-weight: 800;
 font-size:21px;
 background-color:hsl(236, 33%, 45%);
+transition: all .05s ease;
 
 }
 
 .btn:hover {
+    transform: scale(1.1);
+background-color: hsl(235.7, 35.4%, 31%);
+color: white;
+text-shadow: 0px 0px 0.5px #fefefe;
+}
+
+.press {
     transform: scale(1.1);
 background-color: hsl(235.7, 35.4%, 31%);
 color: white;
@@ -109,7 +117,7 @@ border-radius: 2px;
 font-family: roboto;
 font-weight: 800;
 background-color: hsl(16, 91%, 45%);
-transition: all .01s ease;
+transition: all .05s ease;
 }
 
 .btn2:hover {
